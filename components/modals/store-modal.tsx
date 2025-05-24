@@ -63,8 +63,7 @@ export const StoreModal = () => {
                                 <Button type="submit">
                                     Continue
                                 </Button>
-                            </div>
-                                
+                            </div> 
                         </form>
                     </Form>  
                 </div>
