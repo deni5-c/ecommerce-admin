@@ -25,6 +25,7 @@ export async function PATCH(
             return new NextResponse("Store id is required", { status: 400 })
         }
 
+        params = await params
         const store = await prismadb.store.updateMany({
             where: {
                 id: params.storeId,
@@ -43,7 +44,7 @@ export async function PATCH(
 }
 
 export async function DELETE(
-    req: Request,
+    _req: Request,
     { params }: { params: { storeId: string }}
 ) {
     try{
