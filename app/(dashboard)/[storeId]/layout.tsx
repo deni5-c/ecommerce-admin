@@ -1,5 +1,8 @@
+
+
 import prismadb from "@/lib/prismadb";
 import { auth } from "@clerk/nextjs/server"
+
 import { redirect } from "next/navigation";
 
 export default async function DashboardLayout({
@@ -15,6 +18,7 @@ export default async function DashboardLayout({
         redirect('/sing-in')
     }
 
+    params = await params;
     const store = await prismadb.store.findFirst({
         where: {
             id: params.storeId,
