@@ -24,7 +24,7 @@ const Modal = ({
     children
 }: ModalProps) => {
   const onChange = (open: boolean) => {
-    if(!isOpen){
+    if(!open){
         onClose()
     }
   }
