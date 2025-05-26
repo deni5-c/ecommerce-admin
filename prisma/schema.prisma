@@ -18,7 +18,8 @@ model Store {
   id            String        @id @default(uuid())
   name          String
   userId        String
-  billboards    Billboard[]   @relation("StoreBillboards")
+  billboards    Billboard[]   @relation("StoreToBillboards")
+  categories    Category[]    @relation("StoreToCategory")
   createdAt     DateTime      @default(now())
   updatedAt     DateTime      @updatedAt
 }
@@ -26,11 +27,26 @@ model Store {
 model Billboard {
   id            String        @id @default(uuid())
   storeId       String
-  store         Store         @relation("StoreBillboards", fields: [storeId], references: [id])
+  store         Store         @relation("StoreToBillboards", fields: [storeId], references: [id])
   label         String
   imageUrl      String
+  categories    Category[]    
   createdAt     DateTime      @default(now())
   updatedAt     DateTime      @updatedAt
 
   @@index([storeId])
+}
+
+model Category {
+  id            String        @id @default(uuid())
+  storeId       String
+  store         Store         @relation("StoreToCategory", fields: [storeId], references: [id])
+  billboardId   String
+  billboard     Billboard     @relation(fields: [billboardId], references: [id])
+  name          String
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  @@index([storeId])
+  @@index([billboardId])
 }
