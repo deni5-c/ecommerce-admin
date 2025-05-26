@@ -60,6 +60,7 @@ export async function GET(
     req: Request,
     { params }: { params: { storeId: string } }   
 ) {
+    params = await params
     try {
         if(!params.storeId) {
             return new NextResponse("Store ID is required", { status: 400 })
