@@ -71,6 +71,7 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({
             toast.error("Make sure you removed all products and categories first.")
         } finally {
             setLoading(false)
+            setOpen(false)
         }
     }
 
