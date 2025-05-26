@@ -1,14 +1,15 @@
 "use client"
 
-import { useParams, useRouter } from "next/navigation"
 import { Plus } from "lucide-react"
+import { useParams, useRouter } from "next/navigation"
 
 import { Button } from "@/components/ui/button"
 import { Heading } from "@/components/ui/heading"
 import { Separator } from "@/components/ui/separator"
+import { DataTable } from "@/components/ui/data-table"
+import { ApiList } from "@/components/ui/api-list"
 
 import { BillboardColumn, columns } from "./columns"
-import { DataTable } from "@/components/ui/data-table"
 
 
 interface BillboardClientProps {
@@ -40,6 +41,12 @@ export const BillboardClient: React.FC<BillboardClientProps> = ({
                 data={data}
                 searchKey="label"
             />
+            <Heading 
+                title="API"
+                description="API calls for Billboards"
+            />
+            <Separator />
+            <ApiList entityName="billboards" entityIdName="billboardId"/>
         </>
     )
 }

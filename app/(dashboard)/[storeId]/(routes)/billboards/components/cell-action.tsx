@@ -29,10 +29,6 @@ export const CellAction: React.FC<CellActionProps> = ({
         navigator.clipboard.writeText(id)
         toast.success("Billboard ID copied to clipboard.")
     }
-    
-    const awaitParams = async () => {
-        return await params
-    }
 
     const onDelete = async () => {
         try {
