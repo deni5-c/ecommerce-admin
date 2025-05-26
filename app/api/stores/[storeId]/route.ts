@@ -54,7 +54,7 @@ export async function DELETE(
             return new NextResponse("Unauthenticated", { status: 401 })
         }
 
-        if (!params) {
+        if (!params.storeId) {
             return new NextResponse("Store id is required", { status: 400 })
         }
 
