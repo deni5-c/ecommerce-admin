@@ -92,6 +92,7 @@ export async function DELETE(
             return new NextResponse("Unauthenticated", { status: 401 })
         }
 
+        params = await params
         if (!params.billboardId) {
             return new NextResponse("Billboard id is required", { status: 400 })
         }
@@ -107,7 +108,6 @@ export async function DELETE(
             return new NextResponse("Unauthorized", { status: 403 })
         }
 
-        params = await params
         const billboard = await prismadb.billboard.deleteMany({
             where: {
                 id: params.billboardId
