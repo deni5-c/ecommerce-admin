@@ -23,7 +23,7 @@ interface ColorFormProps {
 
 const formSchema = z.object({
     name: z.string().min(1),
-    value: z.string().min(4).regex(/^#/, "Must be a valid hex color code")
+    value: z.string().min(4).regex(/^#([A-Fa-f0-9]{6})$/, "Must be a valid hex color code")
 })
 
 type ColorFormValues = z.infer<typeof formSchema>;
