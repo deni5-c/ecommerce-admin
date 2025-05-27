@@ -8,6 +8,7 @@ export async function GET(
     { params }: { params: { sizeId: string } }
 ) {
     try{
+        params = await params
         if (!params.sizeId) {
             return new NextResponse("Size id is required", { status: 400 })
         }
